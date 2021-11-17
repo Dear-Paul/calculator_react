@@ -1,0 +1,32 @@
+import React from "react";
+
+
+
+interface IUser {
+    username: string;
+    password: string; // please don't do this in real code
+  }
+  
+  function saveCurrentUser(user: IUser): void {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+  }
+  
+  function getCurrentUser(): IUser {
+    var userStr:any = localStorage.getItem('currentUser');
+    try {
+      return JSON.parse(userStr);
+    } catch (ex) {
+      return userStr; // or do some other error handling
+    }
+  }
+  
+  var user = { username: 'root', password: 'root' };
+  saveCurrentUser(user);
+  
+  // elsewhere...
+  var savedUser = getCurrentUser();
+  if (savedUser) {
+    console.log('Current user: ' + savedUser.username);
+  } else {
+    console.log('Current user not found');
+  }
