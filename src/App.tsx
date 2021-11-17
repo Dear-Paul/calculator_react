@@ -1,9 +1,12 @@
 
 import React,{ useState } from 'react';
 import './App.css';
+import Login from './CalcComponents/Login';
+import SignUp from './CalcComponents/SignUp';
 import Button from './CalcComponents/Button';
 import Screen from './CalcComponents/Screen';
 import ButtonBox from "./CalcComponents/ButtonBox"
+
 
 
 // type State = {
@@ -176,8 +179,8 @@ const resetHandler = () => {
      Calculator App   
     </div>   
      
-
-     <div>
+   
+     {/* <div>
     <Screen value={currentState.number ? currentState.number:currentState.result}/>
      </div>
 
@@ -204,7 +207,11 @@ const resetHandler = () => {
           )
         })}
         </ButtonBox>
-      </div>
+      </div> */}
+
+      <Login/>
+      <SignUp/>
+     
     </div>
   );
 }
